@@ -1,0 +1,13 @@
+server:
+  port: 8888
+  contextPath: /
+
+spring:
+  data:
+    elasticsearch:
+      cluster-name:
+      cluster-nodes: localhost:9300
+      properties:
+        transport:
+          tcp:
+            connec_timeout: 120s

@@ -1,0 +1,11 @@
+version: '2.1'
+services:
+  elasticsearch:
+    build:
+      context: ./sources/elasticsearch/5/
+    image: custom/elasticsearch:latest
+    ports:
+      - "9200:9200/tcp"
+      - "9300:9300/tcp"
+    volumes:
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
