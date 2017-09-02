@@ -20,16 +20,31 @@ public class DemoApplication {
 	@Bean
 	CommandLineRunner demo(UserRepository userRepository) {
 		return args -> {
-			Iterable<User> userIterator = userRepository.findAll();
-			Stream<User> userStream = StreamSupport.stream(userIterator.spliterator(),false);
+//			Iterable<User> userIterator = userRepository.findAll();
+//			Stream<User> userStream = StreamSupport.stream(userIterator.spliterator(),false);
 
-			if(userStream.filter(user -> user.getEmail().equals("test@test.com")).count() == 0) {
-				User user = new User();
-				user.setEmail("test@test.com");
-				user.setName("test.name");
-				user.setPassword("test.password");
-				userRepository.save(user);
-			}
+//			if(userStream.filter(user -> user.getEmail().equals("test@test.com")).count() == 0) {
+//				User user = new User();
+//				user.setEmail("test@test.com");
+//				user.setName("test.name");
+//				user.setPassword("test.password");
+//				userRepository.save(user);
+//			}
 		};
 	}
+/*
+    curl -X POST http://localhost:9200/user/user/1 -d '
+    {
+        "email":"test@test.com",
+        "name":"test",
+        "password":"password"
+    }'
+
+    curl -X POST http://localhost:9200/content/content/1 -d '
+    {
+        "subject":"subject",
+        "visible":true,
+        "content":"content"
+    }'
+*/
 }
